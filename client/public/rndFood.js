@@ -353,7 +353,7 @@ window.onload = function() {
 };
 
 function decreaseProbability(meal) {
-    meal.probability = Math.max(0.01, meal.probability * 0.5); // Ensure a minimum probability
+    meal.probability = Math.max(0.01, meal.probability * 0.8); // Ensure a minimum probability
     saveProbabilities();
     normalizeProbabilities(); // Keep probabilities consistent
 }
