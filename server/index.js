@@ -19,7 +19,8 @@ const app = express();
 app.use(express.json({ limit: '10mb' }));  // Adjust the limit as needed
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors({ origin: '*' })); // Allow all origins (use cautiously in production)
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../client/public')));
+
 
 
 // เชื่อมต่อ MongoDB
