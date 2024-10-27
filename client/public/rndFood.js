@@ -34,7 +34,7 @@ let currentMeal = null;
 // Load meals from MongoDB
 async function loadMeals() {
     try {
-        const response = await fetch('/api/meals', {
+        const response = await fetch('https://domfood.onrender.com/api/meals', {
             headers: { 'Authorization': `Bearer ${getAuthToken()}` }
         });
         if (!response.ok) throw new Error('Failed to load meals from MongoDB');
@@ -51,7 +51,7 @@ async function ensureDefaultMeals() {
     const missingMeals = defaultMeals.filter(meal => !existingMealNames.includes(meal.name));
 
     for (const meal of missingMeals) {
-        await fetch("/api/meals", {
+        await fetch("https://domfood.onrender.com/api/meals", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -66,7 +66,7 @@ async function ensureDefaultMeals() {
 // Load meal history from MongoDB (Ordered by latest first)
 async function loadHistory() {
     try {
-        const response = await fetch('/api/history', {
+        const response = await fetch('https://domfood.onrender.com/api/history', {
             headers: { 'Authorization': `Bearer ${getAuthToken()}` }
         });
         const history = await response.json();
@@ -100,7 +100,7 @@ async function loadHistory() {
 async function deleteHistoryItem(historyId) {
     if (confirm('Are you sure you want to delete this history item?')) {
         try {
-            const response = await fetch(`/api/history/${historyId}`, {
+            const response = await fetch(`https://domfood.onrender.com/api/history/${historyId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -172,7 +172,7 @@ async function addCustomMeal() {
             document.getElementById("confirm-btn").style.display = "inline-block";
 
             try {
-                const response = await fetch('/api/meals', {
+                const response = await fetch('https://domfood.onrender.com/api/meals', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -219,7 +219,7 @@ async function confirmMeal() {
                 image: currentMeal.image 
             };
 
-            const response = await fetch('/api/history', {
+            const response = await fetch('https://domfood.onrender.com/api/history', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
