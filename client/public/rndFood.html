@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Meal Generator</title>
+    <link rel="stylesheet" href="rndFood.css">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+          <a href="#">
+              <img src="pic/Logo.png" alt="Logo" class="logo-img">
+          </a>
+          <p class="username">Loading...</p> <!-- ข้อความชั่วคราว -->
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+      <nav id="mobile-menu">
+          <ul>
+              <li><a href="deleteMenu.html">Delete Menu</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="login.html">Log out</a></li>
+          </ul>
+      </nav>
+  </nav>
+
+    <!-- Container for the app and history side by side -->
+    <div class="content-container">
+      <div class="app-container">
+        <h1 id="meal-name">Click to Randomize</h1>
+        <img
+          id="meal-image"
+          src="./outputs/logo.png"
+          alt="Meal Image"
+          class="meal-image"
+        />
+
+        <div class="button-container">
+          <button class="btn" onclick="randomMeal()">Randomize</button>
+          <button class="btn" onclick="toggleAddMenuForm()">Add Meal</button>
+        </div>
+
+        <div class="confirm-container">
+          <!-- Confirm button with green color -->
+          <button
+            class="btn"
+            id="confirm-btn"
+            onclick="confirmMeal()"
+            style="display: none"
+          >
+            Confirm
+          </button>
+        </div>
+
+        <div class="add-menu-form" id="add-menu-form">
+          <input
+            type="text"
+            id="meal-name-input"
+            placeholder="Enter meal name"
+          />
+          <input type="file" id="meal-image-input" accept="image/*" />
+          <button onclick="addCustomMeal()">Add to Menu</button>
+        </div>
+      </div>
+
+      <!-- History container styling -->
+<div class="history-container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Meal History</h2>
+    </div>
+    <ul id="history-list" class="history-list"></ul>
+</div>
+
+
+    <!-- Updated JS path -->
+    <script src="rndFood.js">    
+    </script>
+  </body>
+</html>

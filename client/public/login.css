@@ -1,0 +1,175 @@
+body {
+    background-image: url('/pic/bgLogin.png'); /* ใส่เส้นทางรูปภาพจริง */
+    background-repeat: no-repeat;
+    background-size: cover; /* ทำให้รูปครอบคลุมหน้าจอ */
+    background-position: center;
+    background-attachment: fixed; /* ล็อคพื้นหลังให้อยู่กับที่ */
+    font-family: 'Istok Web', sans-serif;
+    min-height: 100vh; /* ให้ความสูงอย่างน้อย 100% ของความสูงจอ */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* สำหรับหน้าจอเล็ก 0-524px */
+@media (max-width: 524px) {
+    .container {
+        max-width: 300px;
+        width: 90%;
+    }
+
+    .welcome-message {
+        font-size: 18px;
+    }
+
+    .signin-button {
+        font-size: 14px;
+    }
+}
+
+/* สำหรับหน้าจอกลาง 525-900px */
+@media (min-width: 525px) and (max-width: 900px) {
+    .container {
+        max-width: 400px;
+        width: 85%;
+    }
+
+    .welcome-message {
+        font-size: 20px;
+    }
+
+    .signin-button {
+        font-size: 15px;
+    }
+}
+
+/* สำหรับหน้าจอใหญ่ 900px ขึ้นไป */
+@media (min-width: 901px) {
+    .container {
+        max-width: 500px;
+        width: 80%;
+    }
+
+    .welcome-message {
+        font-size: 22px;
+    }
+
+    .signin-button {
+        font-size: 16px;
+    }
+}
+
+.container {
+    padding: 20px 15px;
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+    background-image: url('pic/bgtext.png'); /* เส้นทางรูปภาพ */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+
+.logo img {
+    width: 80px; /* ปรับขนาดโลโก้ */
+    height: auto;
+    margin-bottom: 15px; /* ลด margin */
+}
+
+.welcome-message {
+    font-size: 22px; /* ลดขนาดข้อความ */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+
+    
+}
+
+.sub-message {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    
+}
+
+.container label {
+    font-size: 15px;
+    color: #333;
+    text-align: left;
+    display: block;
+    margin: 5px 0;
+    margin-left: 20px;
+}
+
+.container input {
+    width: 80%; /* เพิ่มความกว้าง */
+    height: 35px; /* ลดความสูง */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.container input:focus {
+    border-color: #FFA733;
+}
+
+/* จัดวาง Checkbox และ Label ให้อยู่ในบรรทัดเดียว */
+.checkbox-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%; /* ขยายความกว้างของ Wrapper */
+    margin: 5px auto; /* ลดระยะห่าง */
+}
+
+.checkbox-wrapper .left {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    margin-right: 5px;
+    transform: scale(1);
+    cursor: pointer;
+}
+
+.signin-button {
+    background-color: #FFA733;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 85%; /* เพิ่มความกว้าง */
+    margin: 10px 0;
+}
+
+.signin-button:hover {
+    background-color: #ff8a00;
+}
+
+.or-text {
+    color: #333;
+    font-size: 14px;
+    margin: 10px 0;
+}
+.register {
+    font-size: 15px;
+    color: #333;
+}
+
+.register a {
+    color: #0046DC;
+    text-decoration: none;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}

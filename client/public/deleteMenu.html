@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Menu</title>
+    <link rel="stylesheet" href="deleteMenu.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">
+                <img src="pic/Logo.png" alt="Logo" class="logo-img">
+            </a>
+            <p class="username">Loading...</p> <!-- ข้อความชั่วคราว -->
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="mobile-menu">
+            <ul>
+                <li><a href="rndFood.html">Random Menu</a></li>
+                <li><a href="rndFood.html?clickButton=true">Add Random Menu</a></li>
+                <li><a href="#">Random History</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="login.html">Log out</a></li>
+            </ul>
+        </nav>
+    </nav>
+
+    <div class="content-container">
+        <div class="history-container">
+            <h2>Delete Meal</h2>
+            <ul id="delete-menu-list" class="history-list"></ul>
+        </div>
+    </div>
+
+    <script src="deleteMenu.js">
+    </script>
+</body>
+</html>
