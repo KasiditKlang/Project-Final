@@ -352,6 +352,45 @@ window.onload = function() {
     }
 };
 
+function decreaseProbability(meal) {
+    meal.probability = Math.max(0.01, meal.probability * 0.5); // Ensure a minimum probability
+    saveProbabilities();
+    normalizeProbabilities(); // Keep probabilities consistent
+}
+
+function normalizeProbabilities() {
+    const totalProbability = meals.reduce((sum, meal) => sum + meal.probability, 0);
+    meals.forEach(meal => {
+        meal.probability /= totalProbability; // Normalize to sum to 1
+    });
+}
+
+function saveProbabilities() {
+    const mealsData = meals.map(meal => ({
+        name: meal.name,
+        probability: meal.probability,
+        lastConfirmed: Date.now()
+    }));
+    localStorage.setItem('meals', JSON.stringify(mealsData));
+}
+
+function loadProbabilities() {
+    const storedMeals = JSON.parse(localStorage.getItem('meals'));
+    if (storedMeals) {
+        storedMeals.forEach(storedMeal => {
+            const meal = meals.find(m => m.name === storedMeal.name);
+            if (meal) {
+                meal.probability = storedMeal.probability;
+                const oneWeek = 7 * 24 * 60 * 60 * 1000; // One week in milliseconds
+                const timeSinceLastConfirmed = Date.now() - storedMeal.lastConfirmed;
+                if (timeSinceLastConfirmed > oneWeek) {
+                    meal.probability = 1; // Reset probability after one week
+                }
+            }
+        });
+    }
+}
+
 
 // On page load, initialize meals and probabilities
 window.onload = loadMeals;
