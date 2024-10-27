@@ -1,6 +1,6 @@
 async function loginUser(username, password) {
     try {
-        const response = await fetch('https://deploy2-2lg1.onrender.com/login', {
+        const response = await fetch('https://domfood.onrender.com/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),

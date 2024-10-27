@@ -21,7 +21,7 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors());
 app.use(express.static('public'));
 
-z
+
 // เชื่อมต่อ MongoDB
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Connected to MongoDB!'))

@@ -308,7 +308,7 @@ function fetchUsername() {
         return;
     }
 
-    fetch('https://deploy2-2lg1.onrender.com/api/username', {
+    fetch('https://domfood.onrender.com/api/username', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`  // ส่ง Token ผ่าน Header
