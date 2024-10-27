@@ -226,7 +226,7 @@ app.get('/api/history', authenticateToken, async (req, res) => {
 
 // กำหนด Route สำหรับหน้าเว็บ (กรณีเข้าถึงจาก /)
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // **Serve other static pages**
