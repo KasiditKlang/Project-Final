@@ -3,9 +3,9 @@ function getAuthToken() {
 }
         async function loadMeals() {
             try {
-                const response = await fetch('/api/meals', {
-            headers: { 'Authorization': `Bearer ${getAuthToken()}` }
-        });
+                const response = await fetch('https://domfood.onrender.com/api/meals', {
+                    headers: { 'Authorization': `Bearer ${getAuthToken()}` }
+                });
                 if (!response.ok) throw new Error('Failed to load meals from MongoDB');
                 const meals = await response.json();
 
@@ -33,12 +33,12 @@ function getAuthToken() {
         async function deleteMeal(mealId) {
     if (confirm('Are you sure you want to delete this meal?')) {
         try {
-            const response = await fetch(`/api/meals/${mealId}`, {
-    headers: {
-        'Authorization': `Bearer ${getAuthToken()}`
-    },
-    method: 'DELETE'
-});
+            const response = await fetch(`https://domfood.onrender.com/api/meals/${mealId}`, {
+                headers: {
+                    'Authorization': `Bearer ${getAuthToken()}`
+                },
+                method: 'DELETE'
+            });            
 
 
             if (response.ok) {
