@@ -230,7 +230,7 @@ app.get('/', (req, res) => {
 });
 // **Serve other static pages**
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'login.html'));
+    res.sendFile(path.join(__dirname, '../client/public/index.html'));
 });
 
 

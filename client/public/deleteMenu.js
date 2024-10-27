@@ -76,36 +76,34 @@ function toggleMenu() {
 }
 
 function fetchUsername() {
-    const token = localStorage.getItem('authToken'); // ดึง Token จาก LocalStorage
-    console.log('Token:', token); // ตรวจสอบว่า Token ถูกต้อง
+    const token = localStorage.getItem('authToken');
+    console.log('Token:', token);
 
     if (!token) {
         console.error('No token found. Please login again.');
         window.location.href = 'login.html';
-        return;
+        return Promise.reject(); // Return a rejected promise if no token
     }
 
-    fetch('https://domfood.onrender.com/api/username', {
+    return fetch('https://domfood.onrender.com/api/username', {
         method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`  // ส่ง Token ผ่าน Header
-        }
+        headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to fetch username');
-        }
+        if (!response.ok) throw new Error('Failed to fetch username');
         return response.json();
     })
     .then(data => {
-        console.log('Fetched user:', data); // ตรวจสอบข้อมูลที่ได้จาก API
+        console.log('Fetched user:', data);
         const usernameElement = document.querySelector('.logo p');
         usernameElement.textContent = data.username || 'ไม่พบชื่อผู้ใช้';
     })
     .catch(error => {
         console.error('Error fetching username:', error);
+        throw error; // Re-throw to allow catch outside to work
     });
 }
+
 
 
         function goBack() {
