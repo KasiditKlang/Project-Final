@@ -212,7 +212,7 @@ app.post('/api/history', authenticateToken, async (req, res) => {
 // *Get Meal History*
 app.get('/api/history', authenticateToken, async (req, res) => {
     try {
-        await deleteOldHistory(); // ลบรายการที่เก่ากว่า 1 นาที
+        await deleteOldHistory(); // Clean up old history items
 
         const history = await mongoose.connection.collection('history')
             .find({ userId: req.user.id })
@@ -220,8 +220,8 @@ app.get('/api/history', authenticateToken, async (req, res) => {
 
         res.json(history);
     } catch (error) {
-        console.error('เกิดข้อผิดพลาดในการโหลดประวัติ:', error);
-        res.status(500).send('เกิดข้อผิดพลาดในการโหลดประวัติ');
+        console.error('Error fetching history:', error);
+        res.status(500).send('Error fetching history');
     }
 });
 
