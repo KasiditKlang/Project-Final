@@ -147,6 +147,7 @@ function randomMeal() {
 
 // Add a custom meal
 async function addCustomMeal() {
+    const form = document.getElementById("add-menu-form"); // Define form here
     const mealNameInput = document.getElementById("meal-name-input").value;
     const mealImageInput = document.getElementById("meal-image-input").files[0];
 
